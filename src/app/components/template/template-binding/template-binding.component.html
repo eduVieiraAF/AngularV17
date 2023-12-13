@@ -1,0 +1,80 @@
+<h2>Template</h2>
+
+<h3>Text Interpolation</h3>
+
+<p>{{ name }} • {{ age }}</p>
+
+<p>Is {{ name }} older than 40? {{ age > 40 ? "Yes" : "No" }}</p>
+<p>Is {{ name }} an adult? {{ condition }}</p>
+
+<hr />
+
+<h2>Property Binding</h2>
+
+<button [disabled]="isDisabled">{{ name }}</button>
+
+<img [src]="srcValue" [title]="logo" />
+
+<hr />
+
+<h2>Attribute Binding</h2>
+<h3>Pretty similar to <strong>Property Binding</strong></h3>
+
+<p [attr.aria-label]="name" [attr.title]="name + age">{{ name }}</p>
+
+<h2>Class and Style Binding</h2>
+
+<p [class.dark]="age === 40">
+  {{ name }}
+</p>
+
+<p
+  [style.color]="crimson"
+  [style.font-weight]="condition ? 'bold' : 'normal'"
+  [style.text-decoration]="'underline'"
+>
+  {{ name }} • {{ age }}
+</p>
+
+<hr />
+
+<h2>Event Binding</h2>
+
+<button (click)="less()">-</button>
+<button (click)="sum()">+</button>
+<br />
+
+<strong>{{ age }}</strong>
+<br />
+
+<input (keydown.shift.t)="onKeyDown($event)" />
+<br> <hr>
+<div
+  style="
+    background-color: black;
+    color: white;
+    width: 180px;
+    height: 50px;
+    border-radius: 7px;
+    padding: 5px;
+  "
+  (mousemove)="onMouseEvent($event)"
+></div>
+
+<hr>
+
+<h2>Two-way Binding</h2>
+
+<input [(ngModel)]="name" />
+
+<hr>
+
+<h2>Attribute Directives</h2>
+<div [ngClass]="{ 'dark': age === 40 || age === 37}">Conditional classes</div>
+
+<div [ngStyle]="{
+  'color': age === 40 ? 'crimson' : 'black',
+  'font-weight': age === 40 ? 'bold' : 'normal',
+  'text-decoration': age === 40 ? 'underline' : 'none',
+  'font-size': age === 40 ? '20px' : '15px'
+}">Dynamic Styling</div>

@@ -1,0 +1,23 @@
+<h2 #trigger>Deferrable Views</h2>
+<!-- @defer(on timer(3s)) { -->
+<!-- @defer(on viewport) { -->
+@defer(on interaction) {
+<!-- @defer(on hover) { -->
+<!-- @defer(on immediate) { -->
+<!-- @defer(on interaction; prefetch on idle) { -->
+<!-- @defer(on interaction; prefetch on interaction(trigger)) { -->
+<!-- @defer(on timer(15s); on interaction) { On is also to be used as OR condition -->
+  <!-- @defer(when isTrue) { -->
+  <!-- @defer(when loadingData$ | async) { -->
+
+  <app-new-component></app-new-component>
+} @placeholder {
+  <p>one moment...</p>
+} @loading {
+  <p>Loading...</p>
+} @error {
+  <p>Loading failed</p>
+}
+
+<!-- <hr>
+<button (click)="isTrue = true">Fetch data</button> -->

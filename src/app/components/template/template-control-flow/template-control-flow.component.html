@@ -1,0 +1,144 @@
+<h2>Template Control Flow</h2>
+<!-- <h3>If</h3>
+
+<h4>new way</h4>
+@if (name === 'Eduardo') { Name is <strong>correct</strong> } @else if(name ===
+'Sofia') { Name is <strong>beautiful</strong> } @else { Name is
+<strong>incorrect</strong>
+}
+
+<br />
+
+<h4>old way</h4>
+<ng-container *ngIf="name === 'Eduardo'; else isFalse">
+  Name is <strong>correct</strong></ng-container
+>
+<ng-template #isFalse> Name is <strong>incorrect</strong></ng-template>
+
+<h3>For</h3>
+
+<h4>new way</h4>
+
+@if (loadingData$ | async; as data;) {
+<ul>
+  @for (item of data; track item) {
+  <li>{{ item }}</li>
+  }
+</ul>
+} @else {
+<p>Loading...</p>
+}
+
+<h4>without if</h4>
+
+<ul>
+  @for (item of loadingData$ | async; track item) {
+    <li>{{ item }}</li>
+  }
+</ul>
+
+<h4>old way</h4>
+<ng-container *ngIf="loadingData$ | async as data; else loading">
+  <ul>
+    <ng-container *ngFor="let item of data; trackBy: track">
+      <li>{{ item }}</li>
+    </ng-container>
+  </ul>
+</ng-container>
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+
+<hr />
+
+<input #newName type="text" />
+<button (click)="addNewName(newName.value)">Add</button>
+
+<h4>new way</h4>
+@for ( item of items; track item.name; let i = $index; let c = $count; let f =
+$first; let l = $last; let o = $odd; let e = $even ) {
+  <hr>
+<p>
+  <strong>{{ item.name }}</strong>
+</p>
+<p>• index {{ i }}</p>
+<p>• count {{ c }}</p>
+<p>• first {{ f }}</p>
+<p>• last {{ l }}</p>
+<p>• odd {{ o }}</p>
+<p>• even {{ e }}</p>
+}
+
+<h4>old way</h4>
+<ng-container
+  *ngFor="
+    let item of items;
+    trackBy: track;
+    let i = index;
+    let c = count;
+    let f = first;
+    let l = last;
+    let o = odd;
+    let e = even
+  "
+>
+<hr>
+  <p>
+    <strong>{{ item.name }}</strong>
+  </p>
+  <p>• index {{ i }}</p>
+  <p>• count {{ c }}</p>
+  <p>• first {{ f }}</p>
+  <p>• last {{ l }}</p>
+  <p>• odd {{ o }}</p>
+  <p>• even {{ e }}</p>
+</ng-container> -->
+
+<!-- <h3>For - Empty</h3>
+
+<h4>new way</h4>
+<ul>
+  @for (item of items; track $index) {
+    <li>{{ item.name }}</li>
+  } @empty {
+    <li>No items to display</li>
+  }
+</ul>
+
+<h4>old way</h4>
+<ul>
+<ng-container *ngIf="items.length > 0; else noItems">
+    <ng-container *ngFor="let item of items; trackBy: track">
+      <li>{{ item.name }}</li>
+    </ng-container>
+  </ng-container>
+  <ng-template #noItems>
+    <li>No items to display</li>
+  </ng-template>
+</ul> -->
+
+<h3>Switch Case</h3>
+
+<h4>new way</h4>
+@switch (name) {
+  @case ('Eduardo') { Name is <strong>correct</strong> }
+  @case ('Sofia') { Name is <strong>beautiful</strong> }
+  @case ('Daniel') { Name is <strong>strong</strong> }
+  @default { Name is <strong>incorrect</strong> }
+}
+
+<h4>old way</h4>
+<ng-container [ngSwitch]="name">
+  <ng-container *ngSwitchCase="'Eduardo'">
+    Name is <strong>correct</strong>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Sofia'">
+    Name is <strong>beautiful</strong>
+  </ng-container>
+  <ng-container *ngSwitchCase="'Daniel'">
+    Name is <strong>strong</strong>
+  </ng-container>
+  <ng-container *ngSwitchDefault>
+    Name is <strong>incorrect</strong>
+  </ng-container>
+</ng-container>
