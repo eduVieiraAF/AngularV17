@@ -22,13 +22,16 @@ export class SignalsComponent {
   }
 
   public updateName() {
-    return this.firstName.set("Sofia ");
+    this.firstName.set("Sofia ");
+    this.lastName.set("Vieira");
+
+    console.log(this.fullName())
 }
 
   public updateArray() {
     this.array.update((oldValue: Array<number>) => {
       console.log(oldValue)
-      return [...oldValue, 2]
+      return [...oldValue, oldValue.length + 1]
     })
   }
 }
