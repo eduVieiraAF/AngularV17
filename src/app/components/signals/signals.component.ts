@@ -28,7 +28,7 @@ export class SignalsComponent {
   public updateArray() {
     this.array.update((oldValue: Array<number>) => {
       console.log(oldValue)
-      return oldValue
+      return [...oldValue, 2]
     })
   }
 }
