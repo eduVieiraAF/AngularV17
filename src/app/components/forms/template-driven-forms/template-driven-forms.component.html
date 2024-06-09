@@ -1,0 +1,25 @@
+<h2>Template Driven Forms</h2>
+<form>
+  <label for="name">
+    Name
+    <input
+      type="text"
+      name="name"
+      #name="ngModel"
+      [ngModel]="name.value"
+      required/>
+  </label>
+  <hr>
+  <p>
+    Value: {{ name.value }}
+  </p>
+  <p>
+    isValid: {{ name.valid }}
+  </p>
+  <p>
+    isDirty: {{ name.dirty }}
+  </p>
+  <p>
+    isTouched: {{ name.touched }}
+  </p>
+</form>
